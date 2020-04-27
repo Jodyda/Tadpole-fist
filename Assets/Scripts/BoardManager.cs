@@ -26,6 +26,7 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] foodTiles;
 	public GameObject[] enemyTiles;
 	public GameObject[] outerWallTiles;
+	public GameObject[] cornerWallTiles;
 
 	private Transform boardHolder;
 	private List <Vector3> gridPositions = new List<Vector3>();
@@ -46,13 +47,44 @@ public class BoardManager : MonoBehaviour
 		for (int x = -1; x < columns + 1; x++) {
 			for (int y = -1; y < rows + 1; y++) {
 				GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
-				if (x== -1 || x == columns || y == -1 || y == rows) {
+
+				// Outer walls
+				if (x == -1 || x == columns || y == -1 || y == rows) {
 					toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+					
+					// Corners
+					if ((x == -1 || x == columns) && (y == -1 || y == rows)) {
+						toInstantiate = cornerWallTiles[Random.Range(0, cornerWallTiles.Length)];
+					}
+
 				}
 
 				GameObject instance = Instantiate(toInstantiate, new Vector3(x,y,0f), Quaternion.identity) as GameObject;
 				
 				instance.transform.SetParent(boardHolder);
+
+				// Rotate left wall
+				if (x == -1 && y != -1 && y != rows) {
+					instance.transform.Rotate(0,0,90);
+				}
+				// Rotate right wall
+				if (x == columns && y != -1 && y != rows) {
+					instance.transform.Rotate(0,0,-90);
+				}
+				// Rotate bottom wall
+				if (y == -1 && x != -1 && x != columns) {
+					instance.transform.Rotate(0,0,180);
+				}
+				// Rotate corners
+				if (x == -1 && y == rows) {
+					instance.transform.Rotate(0,0,-90);
+				}
+				if (x == columns && y == rows) {
+					instance.transform.Rotate(0,0,-180);
+				}
+				if (x == columns && y == -1) {
+					instance.transform.Rotate(0,0,90);
+				}
 			}
 		}
 	}
