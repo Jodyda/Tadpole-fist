@@ -57,6 +57,8 @@ MonoBehaviour:
   - {fileID: 251856798919425313, guid: 590138396c7840d488927b08852627cf, type: 3}
   wallTiles:
   - {fileID: 6995937143884251112, guid: a981ab8aefb28f749bda895810fbf59a, type: 3}
+  - {fileID: 1108706325238161127, guid: bf02480aff05cd2408bb51be21dfe3ff, type: 3}
+  - {fileID: 3262788955618601472, guid: 72de23fc1d9bf014ea2dbeabdbfac36e, type: 3}
   foodTiles:
   - {fileID: 8098557836725811660, guid: 38af35aa5203864448fa647f8c324755, type: 3}
   - {fileID: 1939920976272082953, guid: 6a7f3a7b65d679b40ba4d860835eb104, type: 3}
