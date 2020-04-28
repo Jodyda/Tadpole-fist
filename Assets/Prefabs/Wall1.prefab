@@ -72,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 1861650685
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300042, guid: fbe1e7b94bb1a4a099d5bcb15a00141c, type: 3}
+  m_Sprite: {fileID: 4588725562304392205, guid: 242fd8af9f81bc744be7d602d5c45bc7,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922ae2736e7fc0c4b8496d8e4435f429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgSprite: {fileID: -416959892713566719, guid: eb43518740758014c8a65b0c791b148d,
+  dmgSprite: {fileID: 8085917154702828465, guid: 242fd8af9f81bc744be7d602d5c45bc7,
     type: 3}
-  hp: 4
+  hp: 2
   chopSound1: {fileID: 8300000, guid: 4c2332bc8245b474dad63074059bb755, type: 3}
   chopSound2: {fileID: 8300000, guid: f6aaac83be9e0493493aace800b76619, type: 3}
