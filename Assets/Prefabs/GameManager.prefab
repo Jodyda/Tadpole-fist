@@ -55,6 +55,9 @@ MonoBehaviour:
   exit: {fileID: 3334981726526276443, guid: 0895b582fd4b3bb4b9c9f2b9861c6999, type: 3}
   floorTiles:
   - {fileID: 251856798919425313, guid: 590138396c7840d488927b08852627cf, type: 3}
+  - {fileID: 1465244366684714390, guid: 4ccc541e8fff671489d70a620c0e8b53, type: 3}
+  - {fileID: 5594758745260909144, guid: 72ba1f64c7497ed40bb888eed69c2b7c, type: 3}
+  - {fileID: 5144369765636208168, guid: 8f2f21862759deb459b2cf806f466b43, type: 3}
   wallTiles:
   - {fileID: 6995937143884251112, guid: a981ab8aefb28f749bda895810fbf59a, type: 3}
   - {fileID: 1108706325238161127, guid: bf02480aff05cd2408bb51be21dfe3ff, type: 3}
@@ -70,6 +73,7 @@ MonoBehaviour:
   outerWallTiles:
   - {fileID: 4392898365644716852, guid: bc1be69f400b0634791fbb44a6ca702f, type: 3}
   - {fileID: 9020438601576340209, guid: a6d93a8464c827a4e8ca88cc29cb349b, type: 3}
+  - {fileID: 9020438601576340209, guid: 9c76cd5be7a7e244eb3f16290e68ee13, type: 3}
   cornerWallTiles:
   - {fileID: 966104893494688181, guid: 32b5c2dc484676c42a63091ede9a57ca, type: 3}
 --- !u!114 &6286542204580163531
