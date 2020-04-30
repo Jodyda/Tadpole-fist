@@ -21,6 +21,7 @@ public class BoardManager : MonoBehaviour
 	public Count wallCount = new Count(5,9);
 	public Count foodCount = new Count(1,5);
 	public GameObject exit;
+	public GameObject entrance;
 	public GameObject[] floorTiles;
 	public GameObject[] wallTiles;
 	public GameObject[] foodTiles;
@@ -52,9 +53,14 @@ public class BoardManager : MonoBehaviour
 				if (x == -1 || x == columns || y == -1 || y == rows) {
 					toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
 
+					// Place floor tile, exit goes here
 					if (y == rows && x == columns - 1) {
-						// Place floor tile, exit goes here
 						toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+					}
+
+					// Place entrance tile
+					if (y == 0 && x == -1) {
+						toInstantiate = entrance;
 					}
 					
 					// Corners
