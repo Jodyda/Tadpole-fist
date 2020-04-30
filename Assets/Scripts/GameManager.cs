@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	public float levelStartDelay = 2f;
-	public float turnDelay = 0.1f;
-	public static GameManager instance = null;
 	public BoardManager boardScript;
 	public int playerFoodPoints = 100;
 	[HideInInspector] public bool playersTurn = true;
+
+    public static float turnDelay = 0.2f;
+    public static GameManager instance = null;
 
 	private Text levelText;
 	private GameObject levelImage;
