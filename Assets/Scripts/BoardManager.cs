@@ -51,6 +51,11 @@ public class BoardManager : MonoBehaviour
 				// Outer walls
 				if (x == -1 || x == columns || y == -1 || y == rows) {
 					toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+
+					if (y == rows && x == columns - 1) {
+						// Place floor tile, exit goes here
+						toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+					}
 					
 					// Corners
 					if ((x == -1 || x == columns) && (y == -1 || y == rows)) {
@@ -115,6 +120,6 @@ public class BoardManager : MonoBehaviour
 
     	int enemyCount = (int)Mathf.Log(level, 2f);
     	LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-    	Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
+    	Instantiate(exit, new Vector3(columns - 1, rows, 0f), Quaternion.identity);
     }
 }
