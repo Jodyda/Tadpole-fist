@@ -16,8 +16,8 @@ public class BoardManager : MonoBehaviour
 		}
 	}
 
-	public int columns = 8;
-	public int rows = 8;
+	public float columns = 8;
+	public float rows = 8;
 	public Count wallCount = new Count(5,9);
 	public Count foodCount = new Count(1,5);
 	public GameObject exit;
@@ -34,8 +34,8 @@ public class BoardManager : MonoBehaviour
 	void InitialiseList () {
 		gridPositions.Clear();
 
-		for (int x = 1; x < columns - 1; x++) {
-			for (int y = 1; y < rows - 1; y++) {
+		for (float x = 1; x < columns - 1; x++) {
+			for (float y = 1; y < rows - 1; y++) {
 				gridPositions.Add(new Vector3(x, y, 0f));
 			}
 		}
@@ -44,8 +44,8 @@ public class BoardManager : MonoBehaviour
 	void BoardSetup () {
 		boardHolder = new GameObject ("Board").transform;
 
-		for (int x = -1; x < columns + 1; x++) {
-			for (int y = -1; y < rows + 1; y++) {
+		for (float x = -1; x < columns + 1; x++) {
+			for (float y = -1; y < rows + 1; y++) {
 				GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
 
 				// Outer walls
@@ -120,6 +120,6 @@ public class BoardManager : MonoBehaviour
 
     	int enemyCount = (int)Mathf.Log(level, 2f);
     	LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-    	Instantiate(exit, new Vector3(columns - 1, rows, 0f), Quaternion.identity);
+    	Instantiate(exit, new Vector3(columns - 1.5f, rows - 0.5f, 0f), Quaternion.identity);
     }
 }
