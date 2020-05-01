@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject soundManager;
 	public float levelStartDelay = 2f;
 	public BoardManager boardScript;
 	public int playerFoodPoints = 100;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     	DontDestroyOnLoad(gameObject);
     	
     	enemies = new List<Enemy>();
+        soundManager = GameObject.Find("SoundManager");
         boardScript = GetComponent<BoardManager>();
 	}
 
@@ -71,8 +73,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
     	levelText.text = "After " + level + " days, you starved";
-    	levelImage.SetActive(true);
+        Destroy(soundManager);
+        Destroy(gameObject);
+        levelImage.SetActive(true);
     	enabled = false;
+        SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame

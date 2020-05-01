@@ -34,6 +34,7 @@ public class SoundManager : MonoBehaviour
 
     	efxSource.pitch = randomPitch;
     	efxSource.clip = clips[randomIndex];
+        //Den fortsätter att försöka ladda efter att man dör...
     	efxSource.Play();
     }
 }
