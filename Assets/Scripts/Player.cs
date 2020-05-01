@@ -128,7 +128,7 @@ public class Player : MovingObject
     }
 
     private void Restart() {
-    	SceneManager.LoadScene(0);
+    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoseFood(int loss) {
@@ -142,7 +142,7 @@ public class Player : MovingObject
     	if (food <= 0) {
     		SoundManager.instance.PlaySingle(gameOverSound);
     		SoundManager.instance.musicSource.Stop();
-    		GameManager.instance.GameOver();
+            GameManager.instance.GameOver();
     	}
     }
 }
