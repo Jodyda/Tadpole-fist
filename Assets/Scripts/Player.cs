@@ -45,7 +45,7 @@ public class Player : MovingObject
         	return;
         }
 
-    #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 
         int horizontal = 0;
         int vertical = 0;
@@ -57,8 +57,7 @@ public class Player : MovingObject
         	vertical = 0;
         }
 
-    #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
-
+#else  
         if (Input.touchCount > 0) {
         	Touch myTouch = Input.touches[0];
         }
@@ -80,7 +79,7 @@ public class Player : MovingObject
         	}
         }
 
-    #endif
+#endif
 
         if (horizontal != 0 || vertical != 0) {
         	AttemptMove <Wall> (horizontal, vertical);
