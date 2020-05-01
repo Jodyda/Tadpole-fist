@@ -18,18 +18,28 @@ public class Player : MovingObject
 	public AudioClip drinkSound1;
 	public AudioClip drinkSound2;
 	public AudioClip gameOverSound;
+    public AudioClip startNewLevel;
+
+    //Ny Kod
+    public Rigidbody rb;
+    public float moveSpeed = 5f;
+    Vector2 movement;
+    //Slut på ny kod 
 
 	private Animator animator;
 	private int food;
 	private Vector2 touchOrigin = -Vector2.one;
 
-    // Start is called before the first frame update
+
+
     protected override void Start()
     {
         animator = GetComponent<Animator>();
 
         food = GameManager.instance.playerFoodPoints;
         foodText.text = "Food: " + food;
+
+        SoundManager.instance.RandomizeSfx(startNewLevel);
 
         base.Start();
     }
@@ -38,7 +48,7 @@ public class Player : MovingObject
     	GameManager.instance.playerFoodPoints = food;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (!GameManager.instance.playersTurn) {
@@ -52,6 +62,15 @@ public class Player : MovingObject
 
         horizontal = (int) Input.GetAxisRaw("Horizontal");
         vertical = (int) Input.GetAxisRaw("Vertical");
+
+        //NY KOD NEDANFÖR
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+        //NY KOD OVANFÖR
 
         if (horizontal != 0) {
         	vertical = 0;
@@ -86,6 +105,12 @@ public class Player : MovingObject
         	AttemptMove <Wall> (horizontal, vertical);
         }
     }
+
+    //private void FixedUpdate()
+    //{
+     //   rb.MovePosition(rb.position * moveSpeed * Time.fixedDeltaTime);
+    //}
+    //Ny Kod Ovanför
 
     protected override void AttemptMove <T> (int xDir, int yDir) {
     	food--;
@@ -133,7 +158,6 @@ public class Player : MovingObject
     }
 
     public void LoseFood(int loss) {
-    	animator.SetTrigger("playerHit");
     	food -= loss;
         foodText.text = "-" + loss + " Food: " + food;
     	CheckIfGameOver();
