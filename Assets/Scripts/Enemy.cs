@@ -50,37 +50,36 @@ public class Enemy : MovingObject
     }
 
     protected override void AttemptMove <T> (int xDir, int yDir) {
-    	if (skipMove) {
-    		skipMove = false;
-    		return;
-    	}
-
     	base.AttemptMove <T> (xDir, yDir);
-    	skipMove = true;
     }
 
     public void MoveEnemy() {
+        if (skipMove) {
+            skipMove = false;
+            return;
+        }
+        skipMove = true;
+
         // Find possible paths
         availablePath = FindPath();
 
         // Get next move from possible paths and remove it from list
-        Path target = availablePath[0];
-        foreach(Path path in availablePath) {
-            Debug.Log(path.x + ", " + path.y + ", " + path.score);
-        }
-        availablePath.RemoveAt(0);
+        if (availablePath != null) {
+            Path nextMove = availablePath[0];
+            availablePath.RemoveAt(0);
 
-        int xDir = 0;
-        int yDir = 0;
+            int xDir = 0;
+            int yDir = 0;
 
-        if (target.x == transform.position.x) {
-            yDir = target.y > transform.position.y ? 1 : -1;
-        }
-        else {
-            xDir = target.x > transform.position.x ? 1 : -1;
-        }
+            if (nextMove.x == transform.position.x) {
+                yDir = nextMove.y > transform.position.y ? 1 : -1;
+            }
+            else {
+                xDir = nextMove.x > transform.position.x ? 1 : -1;
+            }
 
-    	AttemptMove<Player>(xDir, yDir);
+        	AttemptMove<Player>(xDir, yDir);
+        }
     }
 
     protected override void OnCantMove <T> (T component) {
@@ -206,14 +205,13 @@ public class Enemy : MovingObject
         Vector3 enemyPos = transform.position;
 
         // Target position
-        Path destinationSquare = new Path(BlocksToTarget(new Vector2(enemyPos.x, enemyPos.y), target.position), 0, null, (int)target.position.x, (int)target.position.y);
-        
+        Path destinationSquare = new Path(BlocksToTarget(enemyPos, target.position), 0, null, (int)target.position.x, (int)target.position.y);
+
         // Enemy position
-        evaluationList.Add(new Path(0, BlocksToTarget(new Vector2(enemyPos.x, enemyPos.y), target.position), null, (int)enemyPos.x, (int)enemyPos.y));
+        evaluationList.Add(new Path(0, BlocksToTarget(enemyPos, target.position), null, (int)enemyPos.x, (int)enemyPos.y));
 
         // Loop through evaluation list
         Path currentSquare = null;
-        List<Path> finishedPath = null;
         while (evaluationList.Count > 0) {
             currentSquare = GetBestScoringItem(evaluationList);
 
@@ -222,7 +220,7 @@ public class Enemy : MovingObject
 
             if (DoesPathListContain(evaluatedSquares, destinationSquare)) {
                 // We found the target, return a reversed path to it
-                finishedPath = BuildPath(currentSquare);
+                return BuildPath(currentSquare);
             }
 
             // Loop though adjacent squares
@@ -244,7 +242,7 @@ public class Enemy : MovingObject
             }
         }
 
-        return finishedPath;
+        return null;
     }
 }
 
