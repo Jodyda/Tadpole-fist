@@ -36,19 +36,7 @@ public class GameManager : MonoBehaviour
         boardScript = GetComponent<BoardManager>();
 	}
 
-    //Ny kod
-    public void StartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
-            
-    }
-
-    public void QuitGame()
-    {
-        Debug.Log("Game Is Finito!!");
-        Application.Quit();
-    }
-    //Ny kod
+    
 
     // This is called each time a scene is loaded.
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode){
@@ -86,6 +74,7 @@ public class GameManager : MonoBehaviour
     	levelText.text = "After " + level + " days, you starved";
     	levelImage.SetActive(true);
     	enabled = false;
+        SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame
