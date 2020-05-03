@@ -20,15 +20,11 @@ public class Player : MovingObject
 	public AudioClip gameOverSound;
     public AudioClip startNewLevel;
 
-    //Ny Kod
-    public Rigidbody rb;
-    public float moveSpeed = 5f;
     Vector2 movement;
-    //Slut på ny kod 
 
 	private Animator animator;
 	private int food;
-	private Vector2 touchOrigin = -Vector2.one;
+	//private Vector2 touchOrigin = -Vector2.one;
 
 
 
@@ -63,14 +59,13 @@ public class Player : MovingObject
         horizontal = (int) Input.GetAxisRaw("Horizontal");
         vertical = (int) Input.GetAxisRaw("Vertical");
 
-        //NY KOD NEDANFÖR
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        //NY KOD OVANFÖR
+  
 
         if (horizontal != 0) {
         	vertical = 0;
@@ -110,7 +105,6 @@ public class Player : MovingObject
     //{
      //   rb.MovePosition(rb.position * moveSpeed * Time.fixedDeltaTime);
     //}
-    //Ny Kod Ovanför
 
     protected override void AttemptMove <T> (int xDir, int yDir) {
     	food--;
