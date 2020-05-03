@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6820728779216462789}
   - component: {fileID: 6849244886368147769}
   m_Layer: 8
-  m_Name: OuterWall3
+  m_Name: OuterWall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -1162973713
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -416959892713566719, guid: eb43518740758014c8a65b0c791b148d,
+  m_Sprite: {fileID: 8521209042122178561, guid: eb43518740758014c8a65b0c791b148d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
