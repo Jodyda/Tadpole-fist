@@ -21,8 +21,3 @@ public class PlayerAbilities : MonoBehaviour
         Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
     }
 }
-
-
-
-
-// 
