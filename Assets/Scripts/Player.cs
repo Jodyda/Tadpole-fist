@@ -80,7 +80,7 @@ public class Player : MovingObject
         	touchOrigin = myTouch.position;
         }
         else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0) {
-        	Vector2 touchEnd = myTouch.position
+        	Vector2 touchEnd = myTouch.position;
         	float x = touchEnd.x - touchOrigin.x;
         	float y = touchEnd.y - touchOrigin.y;
         	touchOrigion.x = -1;
