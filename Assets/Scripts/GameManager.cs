@@ -39,8 +39,10 @@ public class GameManager : MonoBehaviour
         boardScript = GetComponent<BoardManager>();
 	}
 
+    
+
     // This is called each time a scene is loaded.
-	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode){
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode){
 		level++;
 		InitGame();
 	}
