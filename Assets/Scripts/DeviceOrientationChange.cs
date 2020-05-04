@@ -2,11 +2,10 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DeviceOrientationChange : MonoBehaviour
 {
-	public UnityEvent OnResolutionChange = new UnityEvent();
-	public UnityEvent OnOrientationChange = new UnityEvent();
 	public static float CheckDelay = 0.5f;        // How long to wait until we check again.
 
 	public static Vector2 resolution;                    // Current Resolution
@@ -14,6 +13,10 @@ public class DeviceOrientationChange : MonoBehaviour
 	static bool isAlive = true;                    // Keep this script running?
 
 	public Camera cam;      //attaching script to camera itself...could be any gameobject
+    public Image rink;
+    
+	private UnityEvent OnResolutionChange = new UnityEvent();
+	private UnityEvent OnOrientationChange = new UnityEvent();
 
 	void Start()
 	{
@@ -27,20 +30,26 @@ public class DeviceOrientationChange : MonoBehaviour
 			OnOrientationChange = new UnityEvent();
 		OnOrientationChange.AddListener(Ping);
 
+		Ping();
 		StartCoroutine(CheckForChange());
 	}
 
 	void Ping()
 	{
-		Debug.Log("Ping");
-		if (Screen.width < Screen.height)
-		{
-			cam.orthographicSize = 10f;
-		}
-		else
-		{
-			cam.orthographicSize = 5f;
-		}
+		RectTransform rt = rink.GetComponent<RectTransform>();
+
+        float screenRatio = (float)Screen.width / (float)Screen.height;
+        float targetRatio = rt.rect.width / rt.rect.height;
+
+        if (screenRatio >= targetRatio)
+        {
+            Camera.main.orthographicSize = rt.rect.height / 2;
+        }
+        else
+        {
+            float differenceInSize = targetRatio / screenRatio;
+            Camera.main.orthographicSize = rt.rect.height / 2 * differenceInSize;
+        }
 	}
 
 
