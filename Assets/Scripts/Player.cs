@@ -29,7 +29,7 @@ public class Player : MovingObject
         animator = GetComponent<Animator>();
 
         food = GameManager.instance.playerFoodPoints;
-        foodText.text = "Food: " + food;
+        foodText.text = "Energy: " + food;
 
         base.Start();
     }
@@ -88,7 +88,7 @@ public class Player : MovingObject
 
     protected override void AttemptMove <T> (int xDir, int yDir) {
     	food--;
-        foodText.text = "Food: " + food;
+        foodText.text = "Energy: " + food;
 
     	base.AttemptMove<T>(xDir, yDir);
 
@@ -109,13 +109,13 @@ public class Player : MovingObject
     	}
     	else if (other.tag == "Food") {
     		food += pointsPerFood;
-        	foodText.text = "+" + pointsPerFood + " Food: " + food;
+        	foodText.text = "+" + pointsPerFood + " Energy: " + food;
     		SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
     		other.gameObject.SetActive(false);
     	}
     	else if (other.tag == "Soda") {
     		food += pointsPerSoda;
-        	foodText.text = "+" + pointsPerSoda + " Food: " + food;
+        	foodText.text = "+" + pointsPerSoda + " Energy: " + food;
     		SoundManager.instance.RandomizeSfx(drinkSound1, drinkSound2);
     		other.gameObject.SetActive(false);
     	}
@@ -134,7 +134,7 @@ public class Player : MovingObject
     public void LoseFood(int loss) {
     	animator.SetTrigger("playerHit");
     	food -= loss;
-        foodText.text = "-" + loss + " Food: " + food;
+        foodText.text = "-" + loss + " Energy: " + food;
     	CheckIfGameOver();
     }
 
