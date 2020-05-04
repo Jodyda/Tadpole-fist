@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     	levelImage = GameObject.Find("LevelImage");
     	levelText = GameObject.Find("LevelText").GetComponent<Text>();
-    	levelText.text = "Day " + level;
+    	levelText.text = "Room " + level;
     	levelImage.SetActive(true);
     	Invoke("HideLevelImage", levelStartDelay);
 
