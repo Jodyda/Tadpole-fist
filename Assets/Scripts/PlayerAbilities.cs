@@ -18,13 +18,8 @@ public class PlayerAbilities : MonoBehaviour
 
     void DropItem()
     {
-<<<<<<< Updated upstream
-        Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
-    }
-}
-=======
 
-       
+
 
         if (TadpoleDrop)
         {
@@ -39,4 +34,3 @@ public class PlayerAbilities : MonoBehaviour
 //Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
 
 
->>>>>>> Stashed changes
