@@ -13,7 +13,7 @@ public class DeviceOrientationChange : MonoBehaviour
 	static bool isAlive = true;                    // Keep this script running?
 
 	public Camera cam;      //attaching script to camera itself...could be any gameobject
-    public Image rink;
+    public Image board;
     
 	private UnityEvent OnResolutionChange = new UnityEvent();
 	private UnityEvent OnOrientationChange = new UnityEvent();
@@ -31,12 +31,13 @@ public class DeviceOrientationChange : MonoBehaviour
 		OnOrientationChange.AddListener(Ping);
 
 		Ping();
+		isAlive = true;
 		StartCoroutine(CheckForChange());
 	}
 
 	void Ping()
 	{
-		RectTransform rt = rink.GetComponent<RectTransform>();
+		RectTransform rt = board.GetComponent<RectTransform>();
 
         float screenRatio = (float)Screen.width / (float)Screen.height;
         float targetRatio = rt.rect.width / rt.rect.height;
@@ -61,7 +62,6 @@ public class DeviceOrientationChange : MonoBehaviour
 
 		while (isAlive)
 		{
-
 			// Check for a Resolution Change
 			if (resolution.x != Screen.width || resolution.y != Screen.height)
 			{
