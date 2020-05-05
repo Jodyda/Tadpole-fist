@@ -18,11 +18,19 @@ public class PlayerAbilities : MonoBehaviour
 
     void DropItem()
     {
-        Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
+        if (TadpoleDrop)
+        {
+            Instantiate(TadpoleDrop, new Vector2(Mathf.RoundToInt(transform.position.x),
+            Mathf.RoundToInt(transform.position.y)),
+            TadpoleDrop.transform.rotation);
+        }
+
     }
+       
+    
 }
 
 
 
 
-// 
+// Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
