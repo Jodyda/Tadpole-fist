@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 907180700}
   - component: {fileID: 907180699}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 1101656485}
   - component: {fileID: 1101656484}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ScalingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
