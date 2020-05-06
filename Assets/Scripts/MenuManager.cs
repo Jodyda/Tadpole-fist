@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Game Is Finito!!");
         Application.Quit();
     }
 
