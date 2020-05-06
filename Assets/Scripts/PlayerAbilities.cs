@@ -7,6 +7,8 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField]
     private GameObject TadpoleDrop;
 
+    public int TadpoleCount = 4;
+
 
     void Update()
     {
@@ -18,11 +20,12 @@ public class PlayerAbilities : MonoBehaviour
 
     void DropItem()
     {
-        if (TadpoleDrop)
+        if (TadpoleDrop && TadpoleCount > 0)
         {
             Instantiate(TadpoleDrop, new Vector2(Mathf.RoundToInt(transform.position.x),
             Mathf.RoundToInt(transform.position.y)),
             TadpoleDrop.transform.rotation);
+            TadpoleCount--;
         }
 
     }
