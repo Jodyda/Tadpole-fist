@@ -72,11 +72,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-    	levelText.text = "After " + level + " days, you starved";
+        levelText.text = "After " + level + " days, you starved";
         Destroy(soundManager);
         Destroy(gameObject);
         levelImage.SetActive(true);
-    	enabled = false;
+        enabled = false;
         SceneManager.LoadScene(0);
     }
 

@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af2d999f1ca2f346aec2635d2b4997e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   levelStartDelay: 2
-  turnDelay: 0.1
   boardScript: {fileID: 0}
   playerFoodPoints: 100
   playersTurn: 1

@@ -20,6 +20,7 @@ public class Player : MovingObject
 	public AudioClip gameOverSound;
     public AudioClip startNewLevel;
 
+
     Vector2 movement;
 
 	private Animator animator;
@@ -153,14 +154,18 @@ public class Player : MovingObject
     public void LoseFood(int loss) {
     	food -= loss;
         foodText.text = "-" + loss + " Energy: " + food;
-    	CheckIfGameOver();
+        CheckIfGameOver();
     }
 
     private void CheckIfGameOver() {
     	if (food <= 0) {
     		SoundManager.instance.PlaySingle(gameOverSound);
-    		SoundManager.instance.musicSource.Stop();
+            SoundManager.instance.musicSource.Stop();
             GameManager.instance.GameOver();
-    	}
+
+        }
+        
     }
+
+
 }
