@@ -151,10 +151,18 @@ public class Player : MovingObject
     	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void LoseFood(int loss) {
+    public void LoseFood(int loss, int dir) {
     	food -= loss;
-        foodText.text = "-" + loss + " Energy: " + food;
-        CheckIfGameOver();
+        foodText.text = "-" + loss + " Food: " + food;
+
+        if(dir == 1)
+        {
+            animator.SetTrigger("TakeDamageRight");
+        }else if(dir == 2)
+        {
+            animator.SetTrigger("TakeDamageLeft");
+        }
+    	CheckIfGameOver();
     }
 
     private void CheckIfGameOver() {

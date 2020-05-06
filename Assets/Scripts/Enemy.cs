@@ -86,8 +86,25 @@ public class Enemy : MovingObject
     	Player hitPlayer = component as Player;
 
     	animator.SetTrigger("enemyAttack");
+        int dir;
+        /*if (target.position.x == transform.position.x)
+        {
+            dir = 0;
+           if(target.position.y > transform.position.y)
+            {
+                dir = 2;
+            }
+        }else if (target.position.y == transform.position.y)
+        {*/
+            dir = 1;
+        if (target.position.y == transform.position.y && target.position.x > transform.position.x)
+            {
+                dir = 2;
+            
+            }
+        //}
 
-    	hitPlayer.LoseFood(playerDamage);
+    	hitPlayer.LoseFood(playerDamage, dir);
 
     	SoundManager.instance.RandomizeSfx(enemyAttack1, enemyAttack2);
     }
