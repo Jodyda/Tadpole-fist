@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TadpoleDrop: {fileID: 316195531734810128, guid: 6d896e79d55aa5548ac0a256411da9a3,
     type: 3}
+  TadpoleCount: 4
 --- !u!1001 &6465745873579579982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,12 +75,12 @@ PrefabInstance:
     - target: {fileID: 4036870784592110653, guid: 4e13fb8414a6f7b4f9fe79ae162aae42,
         type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4036870784592110653, guid: 4e13fb8414a6f7b4f9fe79ae162aae42,
         type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4036870784592110653, guid: 4e13fb8414a6f7b4f9fe79ae162aae42,
         type: 3}
