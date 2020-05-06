@@ -168,6 +168,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerDamage: 10
-  enemyAttack1: {fileID: 8300000, guid: 8a47ec3b1be3fb8449f0ce2f58de1315, type: 3}
-  enemyAttack2: {fileID: 8300000, guid: 8a47ec3b1be3fb8449f0ce2f58de1315, type: 3}
+  enemyAttack1: {fileID: 8300000, guid: fa5ec8223317cf44ea13cfd8796e8ced, type: 3}
+  enemyAttack2: {fileID: 8300000, guid: fa5ec8223317cf44ea13cfd8796e8ced, type: 3}
   boardScript: {fileID: 0}
