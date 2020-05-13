@@ -40,7 +40,11 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] outerWallTiles;
 	public GameObject[] cornerWallTiles;
 
-	public Environment Indoor = new Environment();
+	public Environment indoor = new Environment();
+	public Environment outdoor = new Environment();
+
+	private List <Environment> environments = new List<Environment>();
+	private Environment environment;
 
 	private Transform boardHolder;
 	private List <Vector3> gridPositions = new List<Vector3>();
@@ -60,25 +64,25 @@ public class BoardManager : MonoBehaviour
 
 		for (float x = -1; x < columns + 1; x++) {
 			for (float y = -1; y < rows + 1; y++) {
-				GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+				GameObject toInstantiate = environment.floorTiles[Random.Range(0, environment.floorTiles.Length)];
 
 				// Outer walls
 				if (x == -1 || x == columns || y == -1 || y == rows) {
-					toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+					toInstantiate = environment.outerWallTiles[Random.Range(0, environment.outerWallTiles.Length)];
 
 					// Place floor tile, exit goes here
 					if (y == rows && x == columns - 1) {
-						toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+						toInstantiate = environment.floorTiles[Random.Range(0, environment.floorTiles.Length)];
 					}
 
 					// Place entrance tile
 					if (y == 0 && x == -1) {
-						toInstantiate = entrance;
+						toInstantiate = environment.entrance;
 					}
 					
 					// Corners
 					if ((x == -1 || x == columns) && (y == -1 || y == rows)) {
-						toInstantiate = cornerWallTiles[Random.Range(0, cornerWallTiles.Length)];
+						toInstantiate = environment.cornerWallTiles[Random.Range(0, environment.cornerWallTiles.Length)];
 					}
 
 				}
@@ -130,11 +134,21 @@ public class BoardManager : MonoBehaviour
     	}
     }
 
+    Environment RandomEnvironment() {
+    	int randomIndex = Random.Range(0, environments.Count);
+    	return environments[randomIndex];
+    }
+
     public void SetupScene (int level) {
+    	environments.Add(indoor);
+    	environments.Add(outdoor);
+
+		environment = RandomEnvironment();
+
     	BoardSetup();
     	InitialiseList();
 
-    	LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+    	LayoutObjectAtRandom(environment.wallTiles, wallCount.minimum, wallCount.maximum);
     	LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
 
     	int enemyCount = (int)Mathf.Log(level, 2f);
