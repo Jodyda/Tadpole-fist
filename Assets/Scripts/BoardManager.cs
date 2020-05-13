@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
+
 public class BoardManager : MonoBehaviour
 {
 	[Serializable] public class Count {
@@ -14,6 +16,15 @@ public class BoardManager : MonoBehaviour
 			minimum = min;
 			maximum = max;
 		}
+	}
+
+	[Serializable] public class Environment {
+		public GameObject exit;
+		public GameObject entrance;
+		public GameObject[] floorTiles;
+		public GameObject[] wallTiles;
+		public GameObject[] outerWallTiles;
+		public GameObject[] cornerWallTiles;
 	}
 
 	public float columns = 8;
@@ -28,6 +39,8 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] enemyTiles;
 	public GameObject[] outerWallTiles;
 	public GameObject[] cornerWallTiles;
+
+	public Environment Indoor = new Environment();
 
 	private Transform boardHolder;
 	private List <Vector3> gridPositions = new List<Vector3>();
