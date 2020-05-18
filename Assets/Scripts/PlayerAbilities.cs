@@ -7,8 +7,16 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField]
     private GameObject TadpoleDrop;
 
+    private Player player;
+    
+    
+
     public int TadpoleCount = 4;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
 
     void Update()
     {
@@ -18,12 +26,14 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
+   
     void DropItem()
     {
+    
+
         if (TadpoleDrop && TadpoleCount > 0)
         {
-            Instantiate(TadpoleDrop, new Vector2(Mathf.RoundToInt(transform.position.x),
-            Mathf.RoundToInt(transform.position.y)),
+            Instantiate(TadpoleDrop, player.lastPosition,
             TadpoleDrop.transform.rotation);
             TadpoleCount--;
         }
@@ -36,4 +46,5 @@ public class PlayerAbilities : MonoBehaviour
 
 
 
-// Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
+
+

@@ -21,8 +21,9 @@ public class Player : MovingObject
     public AudioClip startNewLevel;
 
     Vector2 movement;
+    public Vector2 lastPosition;
 
-	private Animator animator;
+    private Animator animator;
 	private int food;
 	//private Vector2 touchOrigin = -Vector2.one;
 
@@ -110,7 +111,10 @@ public class Player : MovingObject
     	food--;
         foodText.text = "Food: " + food;
 
-    	base.AttemptMove<T>(xDir, yDir);
+        
+        lastPosition = new Vector2(transform.position.x, transform.position.y);
+
+        base.AttemptMove<T>(xDir, yDir);
 
     	RaycastHit2D hit;
     	if (Move(xDir, yDir, out hit)) {
