@@ -8,6 +8,7 @@ TagManager:
   - Exit
   - Enemy
   - Soda
+  - Tadpole
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Floor
     uniqueID: 3131993583
+    locked: 0
+  - name: Particles
+    uniqueID: 1302787085
     locked: 0
   - name: Items
     uniqueID: 1861650685
