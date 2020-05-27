@@ -7,37 +7,55 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField]
     private GameObject TadpoleDrop;
 
+   
+    private Player player;
+
     public int TadpoleCount = 4;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
+           
             DropItem();
         }
+        
     }
+
 
     void DropItem()
     {
+    
+
         if (TadpoleDrop && TadpoleCount > 0)
         {
-            Instantiate(TadpoleDrop, new Vector2(Mathf.RoundToInt(transform.position.x),
-            Mathf.RoundToInt(transform.position.y)),
+            Instantiate(TadpoleDrop, player.lastPosition,
             TadpoleDrop.transform.rotation);
             TadpoleCount--;
         }
 
     }
-       
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Tadpole")
+        {
+            Debug.Log("Collision!!");
+            TadpoleCount++;
+            Destroy(collision.gameObject);
+            //collision.gameObject.SetActive(false);
+        }
+    }
+
+
 }
 
 
 
 
-//Utbytt kod
-//Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
 
 
-// Instantiate(TadpoleDrop, this.gameObject.transform.position - transform.forward * 4, Quaternion.identity);
