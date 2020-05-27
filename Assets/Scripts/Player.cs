@@ -19,6 +19,7 @@ public class Player : MovingObject
 	public AudioClip drinkSound2;
 	public AudioClip gameOverSound;
     public AudioClip startNewLevel;
+    public ParticleSystem footprint;
 
     Vector2 movement;
     public Vector2 lastPosition;
@@ -63,6 +64,8 @@ public class Player : MovingObject
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
@@ -70,6 +73,7 @@ public class Player : MovingObject
 
         if (horizontal != 0) {
         	vertical = 0;
+            CreateFootprint();
         }
 
     #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
@@ -99,6 +103,7 @@ public class Player : MovingObject
 
         if (horizontal != 0 || vertical != 0) {
         	AttemptMove <Wall> (horizontal, vertical);
+            CreateFootprint();
         }
     }
 
@@ -144,7 +149,6 @@ public class Player : MovingObject
     		other.gameObject.SetActive(false);
     	}
     }
-
     protected override void OnCantMove <T> (T component) {
     	Wall hitWall = component as Wall;
     	hitWall.DamageWall(wallDamage);
@@ -175,5 +179,10 @@ public class Player : MovingObject
     		SoundManager.instance.musicSource.Stop();
     		GameManager.instance.GameOver();
     	}
+    }
+
+    void CreateFootprint()
+    {
+        footprint.Play();
     }
 }

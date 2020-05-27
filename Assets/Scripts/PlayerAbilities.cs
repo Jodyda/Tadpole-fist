@@ -7,9 +7,8 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField]
     private GameObject TadpoleDrop;
 
+   
     private Player player;
-    
-    
 
     public int TadpoleCount = 4;
 
@@ -22,11 +21,13 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
+           
             DropItem();
         }
+        
     }
 
-   
+
     void DropItem()
     {
     
@@ -39,8 +40,18 @@ public class PlayerAbilities : MonoBehaviour
         }
 
     }
-       
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Tadpole")
+        {
+            Debug.Log("Collision!!");
+            TadpoleCount++;
+            Destroy(collision.gameObject);
+            //collision.gameObject.SetActive(false);
+        }
+    }
+
+
 }
 
 
