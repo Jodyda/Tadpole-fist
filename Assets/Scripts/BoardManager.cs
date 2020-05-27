@@ -127,10 +127,26 @@ public class BoardManager : MonoBehaviour
     void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum) {
     	int objectCount = Random.Range(minimum, maximum + 1);
 
+    	Vector3[] positions = new Vector3[objectCount];
+
     	for (int i = 0; i < objectCount; i++) {
-    		Vector3 randomPosition = RandomPosition();
+    		positions[i] = RandomPosition();
+    	}
+
+    	// We want to print items from top to bottom, so positions need to be sorted by Y value
+    	Array.Sort(positions, delegate(Vector3 v1, Vector3 v2) {
+			if( v2.y > v1.y ) {
+				return 1;
+			}
+			else if( v2.y < v1.y ) {
+				return -1;
+			}
+			return 0;
+		});
+
+    	for (int i = 0; i < objectCount; i++) {
     		GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
-    		Instantiate(tileChoice, randomPosition, Quaternion.identity);
+    		Instantiate(tileChoice, positions[i], Quaternion.identity);
     	}
     }
 

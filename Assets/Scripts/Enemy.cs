@@ -65,8 +65,10 @@ public class Enemy : MovingObject
 
         // Get next move from possible paths and remove it from list
         if (availablePath != null) {
-            Debug.Log("Correct target: " + ((target.position.x == availablePath[availablePath.Count - 1].x) &&
+            /*Debug.Log("Correct target: " + ((target.position.x == availablePath[availablePath.Count - 1].x) &&
                     (target.position.y == availablePath[availablePath.Count - 1].y)));
+            Debug.Log("Player: X" + target.position.x + ", Y" +  target.position.y);
+            Debug.Log("Target: X" + availablePath[availablePath.Count - 1].x + ", Y" +  availablePath[availablePath.Count - 1].y);*/
 
             Path nextMove = availablePath[0];
             availablePath.RemoveAt(0);

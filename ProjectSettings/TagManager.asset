@@ -54,7 +54,12 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 1861650685
+  - name: Food
+    uniqueID: 3673559389
     locked: 0
   - name: Units
     uniqueID: 3393972251
+    locked: 0
+  - name: Items
+    uniqueID: 1861650685
     locked: 0
