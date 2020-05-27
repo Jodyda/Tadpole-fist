@@ -57,3 +57,6 @@ TagManager:
   - name: Items
     uniqueID: 1861650685
     locked: 0
+  - name: Speech
+    uniqueID: 3847551003
+    locked: 0

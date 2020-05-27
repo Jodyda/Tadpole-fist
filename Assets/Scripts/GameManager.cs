@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	public float levelStartDelay = 2f;
+    public float speechBubbleDelay = 2f;
 	public static float turnDelay = 0.2f;
 	public static GameManager instance = null;
 	public BoardManager boardScript;
@@ -66,6 +67,22 @@ public class GameManager : MonoBehaviour
     private void HideLevelImage() {
     	levelImage.SetActive(false);
     	doingSetup = false;
+
+        if (enemies.Count != 0) {
+            ShowEnemyBubble();
+        }
+    }
+
+    private void ShowEnemyBubble() {
+        Enemy enemy = enemies[Random.Range(0, enemies.Count)];
+        enemy.speechBubble.SetActive(true);
+
+        StartCoroutine(HideEnemyBubble(enemy));
+    }
+
+    IEnumerator HideEnemyBubble(Enemy enemy) {
+        yield return new WaitForSeconds(speechBubbleDelay);
+        enemy.speechBubble.SetActive(false);
     }
 
     public void GameOver() {

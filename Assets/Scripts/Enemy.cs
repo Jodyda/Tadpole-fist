@@ -37,6 +37,7 @@ public class Enemy : MovingObject
 	public AudioClip enemyAttack1;
 	public AudioClip enemyAttack2;
     public BoardManager boardScript;
+    public GameObject speechBubble;
 
     private List<Path> availablePath;
 
