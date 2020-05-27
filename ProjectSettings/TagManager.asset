@@ -48,6 +48,9 @@ TagManager:
   - name: Floor
     uniqueID: 3131993583
     locked: 0
+  - name: Food
+    uniqueID: 3673559389
+    locked: 0
   - name: Units
     uniqueID: 3393972251
     locked: 0
