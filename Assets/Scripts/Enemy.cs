@@ -33,7 +33,7 @@ public class Enemy : MovingObject
 
 	private Animator animator;
 	private Transform target;
-	private bool skipMove;
+	//private bool skipMove;
 	public AudioClip enemyAttack1;
 	public AudioClip enemyAttack2;
     public BoardManager boardScript;
@@ -54,17 +54,20 @@ public class Enemy : MovingObject
     }
 
     public void MoveEnemy() {
-        if (skipMove) {
+        /*if (skipMove) {
             skipMove = false;
             return;
         }
-        skipMove = true;
+        skipMove = true;*/
 
         // Find possible paths
         availablePath = FindPath();
 
         // Get next move from possible paths and remove it from list
         if (availablePath != null) {
+            Debug.Log("Correct target: " + ((target.position.x == availablePath[availablePath.Count - 1].x) &&
+                    (target.position.y == availablePath[availablePath.Count - 1].y)));
+
             Path nextMove = availablePath[0];
             availablePath.RemoveAt(0);
 
