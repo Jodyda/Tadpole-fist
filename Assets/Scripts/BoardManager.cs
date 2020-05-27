@@ -133,7 +133,7 @@ public class BoardManager : MonoBehaviour
     		positions[i] = RandomPosition();
     	}
 
-    	// We want to print items from bottom to top, so positions need to be sorted by Y value
+    	// We want to print items from top to bottom, so positions need to be sorted by Y value
     	Array.Sort(positions, delegate(Vector3 v1, Vector3 v2) {
 			if( v2.y > v1.y ) {
 				return 1;
