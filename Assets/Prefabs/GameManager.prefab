@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6286542204580163381}
   - component: {fileID: 6286542204580163380}
   - component: {fileID: 6286542204580163531}
+  - component: {fileID: 8632495911250988174}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -130,6 +131,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStartDelay: 2
+  speechBubbleDelay: 2
   boardScript: {fileID: 0}
   playerFoodPoints: 100
   playersTurn: 1
+--- !u!114 &8632495911250988174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286542204580163530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67629464715715546aea5fa569f459be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 948d275ebdc377b4ebda13d75c4cbe40, type: 3}
+  phrases: []

@@ -18,6 +18,7 @@ public class Player : MovingObject
 	public AudioClip drinkSound1;
 	public AudioClip drinkSound2;
 	public AudioClip gameOverSound;
+    public GameObject speechBubble;
 
 	private Animator animator;
 	private int food;

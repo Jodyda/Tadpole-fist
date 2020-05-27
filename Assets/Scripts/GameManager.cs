@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,13 +12,15 @@ public class GameManager : MonoBehaviour
 	public static float turnDelay = 0.2f;
 	public static GameManager instance = null;
 	public BoardManager boardScript;
+    public PhraseDecoder phraseDecoder;
 	public int playerFoodPoints = 100;
 	[HideInInspector] public bool playersTurn = true;
 
 	private Text levelText;
 	private GameObject levelImage;
-	private int level = 0;
+	private int level = 1;
 	private List<Enemy> enemies;
+    private Player player;
 	private bool enemiesMoving;
 	private bool doingSetup;
 
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
     	
     	enemies = new List<Enemy>();
         boardScript = GetComponent<BoardManager>();
+        phraseDecoder = GetComponent<PhraseDecoder>();
 	}
 
     // This is called each time a scene is loaded.
@@ -62,27 +66,46 @@ public class GameManager : MonoBehaviour
 
     	enemies.Clear();
     	boardScript.SetupScene(level);
+        
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     private void HideLevelImage() {
     	levelImage.SetActive(false);
     	doingSetup = false;
 
-        if (enemies.Count != 0) {
-            ShowEnemyBubble();
+        if (level % 2 == 0 && enemies.Count != 0) {
+            ShowSpeechBubbles();
         }
     }
 
-    private void ShowEnemyBubble() {
+    private void ShowSpeechBubbles() {
+        Phrase phrase = phraseDecoder.GetRandomPhrase();
+
         Enemy enemy = enemies[Random.Range(0, enemies.Count)];
+        enemy.speechBubble.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(phrase.enemy);
         enemy.speechBubble.SetActive(true);
 
         StartCoroutine(HideEnemyBubble(enemy));
+        StartCoroutine(ShowPlayerBubble(phrase.player));
     }
 
     IEnumerator HideEnemyBubble(Enemy enemy) {
         yield return new WaitForSeconds(speechBubbleDelay);
         enemy.speechBubble.SetActive(false);
+    }
+
+    IEnumerator ShowPlayerBubble(string phrase) {
+        yield return new WaitForSeconds(speechBubbleDelay);
+        player.speechBubble.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(phrase);
+        player.speechBubble.SetActive(true);
+
+        StartCoroutine(HidePlayerBubble());
+    }
+
+    IEnumerator HidePlayerBubble() {
+        yield return new WaitForSeconds(speechBubbleDelay);
+        player.speechBubble.SetActive(false);
     }
 
     public void GameOver() {
