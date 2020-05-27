@@ -1,0 +1,3 @@
+Jag har utgått från basen på RougeLike tutorialen och därav sparat det i mitt projekt.
+Detta då min delkomponent är camera orientering och GUI.
+Så det som är GUI och delkomponenter är gjort av mig.

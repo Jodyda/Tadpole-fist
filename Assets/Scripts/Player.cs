@@ -148,7 +148,10 @@ public class Player : MovingObject
     }
 
     private void Restart() {
-    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Gamemanager score " + GameManager.instance.score);
+       // GameManager.instance.score = ScoreManager.instance.score;
+        // GameManager.instance.highScore = ScoreManager.instance.highScore;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoseFood(int loss, int dir) {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour
 	private bool enemiesMoving;
 	private bool doingSetup;
 
+    public int score;
+    public int highScore;
+
 
     void Awake ()
     {
@@ -33,14 +37,23 @@ public class GameManager : MonoBehaviour
     	}
 
     	DontDestroyOnLoad(gameObject);
-    	
+
+        
     	enemies = new List<Enemy>();
         soundManager = GameObject.Find("SoundManager");
         boardScript = GetComponent<BoardManager>();
 	}
 
+    private void Start()
+    {
+        ScoreManager.instance.Load();
+    }
+
     // This is called each time a scene is loaded.
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode){
+        // ScoreManager.instance.score = score;
+       // ScoreManager.instance.highScore = highScore;
+        ScoreManager.instance.AddScore(); 
 		level++;
 		InitGame();
 	}
@@ -50,6 +63,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	void OnDisable() {
+        
 		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
 	}
 
@@ -76,7 +90,9 @@ public class GameManager : MonoBehaviour
         Destroy(soundManager);
         Destroy(gameObject);
         levelImage.SetActive(true);
-        enabled = false;
+    	enabled = false;
+        Debug.Log(highScore);
+        ScoreManager.instance.Save();
         SceneManager.LoadScene(0);
     }
 
