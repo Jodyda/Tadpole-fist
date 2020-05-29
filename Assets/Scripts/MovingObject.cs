@@ -11,21 +11,44 @@ public abstract class MovingObject : MonoBehaviour
 	private Rigidbody2D rb2D;
 	private float inverseMoveTime;
 
+    private int mask1;
+    private int mask2;
+
+    private int combinedMask;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        mask1 = 1 << LayerMask.NameToLayer("BlockingLayer");
+        mask2 = 1 << LayerMask.NameToLayer("BlockEnemy");
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         inverseMoveTime = 1f / moveTime;
+
+        combinedMask = mask1 | mask2;
+        Debug.Log("combined mask: " + combinedMask);
+
     }
 
     protected bool Move (int xDir, int yDir, out RaycastHit2D hit) {
     	Vector2 start = transform.position;
     	Vector2 end = start + new Vector2(xDir, yDir);
 
-    	boxCollider.enabled = false;
-    	hit = Physics2D.Linecast(start, end, blockingLayer);
-    	boxCollider.enabled = true;
+        
+
+        if (this.gameObject.CompareTag("Enemy"))
+        {
+            boxCollider.enabled = false;
+            hit = Physics2D.Linecast(start, end, combinedMask);
+            boxCollider.enabled = true;
+        }
+
+        else
+        {
+            boxCollider.enabled = false;
+            hit = Physics2D.Linecast(start, end, blockingLayer);
+            boxCollider.enabled = true;
+        }
 
     	if (hit.transform == null) {
     		StartCoroutine(SmoothMovement(end));

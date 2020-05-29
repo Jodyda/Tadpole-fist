@@ -9,19 +9,21 @@ public class PlayerAbilities : MonoBehaviour
 
    
     private Player player;
-
-    public int TadpoleCount = 4;
+    public TadpoleSlider tadpoleSlider;
+    public int maxTadpole = 4;
+    public int currentTadpole;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        currentTadpole = maxTadpole;
+        tadpoleSlider.SetMaxCount(maxTadpole);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-           
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
+        { 
             DropItem();
         }
         
@@ -32,11 +34,14 @@ public class PlayerAbilities : MonoBehaviour
     {
     
 
-        if (TadpoleDrop && TadpoleCount > 0)
+        if (TadpoleDrop && currentTadpole > 0)
         {
             Instantiate(TadpoleDrop, player.lastPosition,
             TadpoleDrop.transform.rotation);
-            TadpoleCount--;
+            currentTadpole--;
+
+            tadpoleSlider.SetCount(currentTadpole);
+            
         }
 
     }
@@ -45,9 +50,10 @@ public class PlayerAbilities : MonoBehaviour
         if(collision.tag == "Tadpole")
         {
             Debug.Log("Collision!!");
-            TadpoleCount++;
             Destroy(collision.gameObject);
-            //collision.gameObject.SetActive(false);
+
+            currentTadpole++;
+            tadpoleSlider.SetCount(currentTadpole);
         }
     }
 
