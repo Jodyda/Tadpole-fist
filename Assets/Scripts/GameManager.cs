@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject soundManager;
 	public float levelStartDelay = 2f;
     public float speechBubbleDelay = 2f;
+    public float gameOverDelay = 2f;
 	public BoardManager boardScript;
     public PhraseDecoder phraseDecoder;
 	public int playerFoodPoints = 100;
@@ -127,12 +128,17 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
         levelText.text = "After " + level + " days, you starved";
-        Destroy(gameObject);
         levelImage.SetActive(true);
-    	enabled = false;
-        Debug.Log(highScore);
+
+        Invoke("EndGame", gameOverDelay);
+    }
+
+    public void EndGame() {
+        enabled = false;
+        Destroy(gameObject);
         ScoreManager.instance.Save();
         SceneManager.LoadScene(0);
+        SoundManager.instance.musicSource.Play();
     }
 
     // Update is called once per frame

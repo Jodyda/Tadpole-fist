@@ -195,9 +195,7 @@ public class Player : MovingObject
     		SoundManager.instance.PlaySingle(gameOverSound);
             SoundManager.instance.musicSource.Stop();
             GameManager.instance.GameOver();
-
         }
-        
     }
 
     void CreateFootprint()
