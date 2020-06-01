@@ -20,6 +20,7 @@ public class Player : MovingObject
 	public AudioClip gameOverSound;
     public AudioClip startNewLevel;
     public ParticleSystem footprint;
+    public GameObject speechBubble;
 
 
     Vector2 movement;

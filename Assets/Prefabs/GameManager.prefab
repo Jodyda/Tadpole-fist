@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6286542204580163381}
   - component: {fileID: 6286542204580163380}
   - component: {fileID: 6286542204580163531}
+  - component: {fileID: 8632495911250988174}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -105,12 +106,15 @@ MonoBehaviour:
       type: 3}
     floorTiles:
     - {fileID: 251856798919425313, guid: a72bbaaad3810da4ebd6e56c067c293c, type: 3}
+    - {fileID: 251856798919425313, guid: 8aa7832abf7f10446a418848577d4d43, type: 3}
+    - {fileID: 251856798919425313, guid: 235af834afe0fcc4a8f0df6e312e0157, type: 3}
+    - {fileID: 251856798919425313, guid: 547501c4b672c6c4290d4c7308a9f558, type: 3}
     wallTiles:
     - {fileID: 6995937143884251112, guid: a981ab8aefb28f749bda895810fbf59a, type: 3}
     - {fileID: 1108706325238161127, guid: bf02480aff05cd2408bb51be21dfe3ff, type: 3}
     - {fileID: 6412885711266195708, guid: 4452c5f727f25544d8b61157ddf32028, type: 3}
     - {fileID: 6412885711266195708, guid: 4452c5f727f25544d8b61157ddf32028, type: 3}
-    - {fileID: 6412885711266195708, guid: 4452c5f727f25544d8b61157ddf32028, type: 3}
+    - {fileID: 544940604629385429, guid: d062daf5bf189a64ba17e8183885941d, type: 3}
     outerWallTiles:
     - {fileID: 4392898365644716852, guid: bc1be69f400b0634791fbb44a6ca702f, type: 3}
     - {fileID: 9020438601576340209, guid: a6d93a8464c827a4e8ca88cc29cb349b, type: 3}
@@ -131,6 +135,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundManager: {fileID: 0}
   levelStartDelay: 2
+  speechBubbleDelay: 2
   boardScript: {fileID: 0}
+  phraseDecoder: {fileID: 0}
   playerFoodPoints: 100
   playersTurn: 1
+--- !u!114 &8632495911250988174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286542204580163530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67629464715715546aea5fa569f459be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 948d275ebdc377b4ebda13d75c4cbe40, type: 3}
+  phrases: []

@@ -144,9 +144,13 @@ public class BoardManager : MonoBehaviour
 			return 0;
 		});
 
+    	int order = 0;
     	for (int i = 0; i < objectCount; i++) {
     		GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
-    		Instantiate(tileChoice, positions[i], Quaternion.identity);
+    		GameObject instance = Instantiate(tileChoice, positions[i], Quaternion.identity);
+
+    		instance.GetComponent<SpriteRenderer>().sortingOrder = order;
+    		order++;
     	}
     }
 

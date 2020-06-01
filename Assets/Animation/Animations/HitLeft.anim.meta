@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 174111b84ad5f5a4784eec7bc7d8b588
+<<<<<<< HEAD:Assets/Animation/Animations/HitLeft.anim.meta
+guid: e6ecd63de8a93724da28fd9a97c3c1e1
+=======
+guid: 03e5f23641417254da13071d5d9282bc
+>>>>>>> environment:Assets/Animation/Animations/Fly.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
