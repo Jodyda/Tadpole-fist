@@ -172,8 +172,8 @@ MonoBehaviour:
   BlockEnemy:
     serializedVersion: 2
     m_Bits: 512
-  enemyAttack1: {fileID: 8300000, guid: fa5ec8223317cf44ea13cfd8796e8ced, type: 3}
-  enemyAttack2: {fileID: 8300000, guid: fa5ec8223317cf44ea13cfd8796e8ced, type: 3}
+  enemyAttack1: {fileID: 8300000, guid: 0db8cac2749584a009540aa5671ee80d, type: 3}
+  enemyAttack2: {fileID: 8300000, guid: 114514a3b3697484ebaa08f7fbf842d3, type: 3}
   boardScript: {fileID: 0}
   speechBubble: {fileID: 659242439104596974}
 --- !u!1001 &6169303569640128675
