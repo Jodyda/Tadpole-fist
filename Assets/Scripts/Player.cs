@@ -18,7 +18,6 @@ public class Player : MovingObject
 	public AudioClip drinkSound1;
 	public AudioClip drinkSound2;
 	public AudioClip gameOverSound;
-    public AudioClip startNewLevel;
     public ParticleSystem footprint;
     public GameObject speechBubble;
 
@@ -38,8 +37,6 @@ public class Player : MovingObject
 
         food = GameManager.instance.playerFoodPoints;
         foodText.text = "Energy: " + food;
-
-        SoundManager.instance.RandomizeSfx(startNewLevel);
 
         base.Start();
     }
