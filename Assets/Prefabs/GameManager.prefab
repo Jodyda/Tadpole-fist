@@ -106,6 +106,9 @@ MonoBehaviour:
       type: 3}
     floorTiles:
     - {fileID: 251856798919425313, guid: a72bbaaad3810da4ebd6e56c067c293c, type: 3}
+    - {fileID: 251856798919425313, guid: 8aa7832abf7f10446a418848577d4d43, type: 3}
+    - {fileID: 251856798919425313, guid: 235af834afe0fcc4a8f0df6e312e0157, type: 3}
+    - {fileID: 251856798919425313, guid: 547501c4b672c6c4290d4c7308a9f558, type: 3}
     wallTiles:
     - {fileID: 6995937143884251112, guid: a981ab8aefb28f749bda895810fbf59a, type: 3}
     - {fileID: 1108706325238161127, guid: bf02480aff05cd2408bb51be21dfe3ff, type: 3}
@@ -133,6 +136,7 @@ MonoBehaviour:
   levelStartDelay: 2
   speechBubbleDelay: 2
   boardScript: {fileID: 0}
+  phraseDecoder: {fileID: 0}
   playerFoodPoints: 100
   playersTurn: 1
 --- !u!114 &8632495911250988174

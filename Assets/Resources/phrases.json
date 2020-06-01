@@ -3,11 +3,19 @@
   [
     {
       "enemy": "F*cking Amphibian!",
-      "player": "TJENA!"
+      "player": "Don't test me, nugget!"
     },
     {
       "enemy": "Die, you slimy bastard!",
-      "player": "HEJHEJ!"
+      "player": "Catch me if you can!"
+    },
+    {
+      "enemy": "Frog's back on the menu, boys!",
+      "player": "More like fried chicken!"
+    },
+    {
+      "enemy": "Look at this overgrown fish",
+      "player": "Don't be so cocky.."
     }
   ]
 }
