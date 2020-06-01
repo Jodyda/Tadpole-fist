@@ -5,31 +5,39 @@ using UnityEngine.UI;
 
 public class PlayerAbilities : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject TadpoleDrop;
 
-   
+
+
     private Player player;
+
+
+    //public float x = Input.mousePosition.x;
+    //public float y = Input.mousePosition.y;
 
 
     public int maxTadpole = 4;
     public int currentTadpole;
-
     public Text tadpoleText;
+   
+
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentTadpole = maxTadpole;
-    }
+       
+}
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
-        { 
-            DropItem();
+        if (!PauseMenu.GameIsPaused && Input.mousePosition.x < 10 && Input.mousePosition.x > -1.5 && Input.mousePosition.y < 10 && Input.mousePosition.y > -1.5)
+        {
+            DropController();
+
         }
-        
     }
 
 
@@ -55,6 +63,14 @@ public class PlayerAbilities : MonoBehaviour
 
             currentTadpole++;
             tadpoleText.text = currentTadpole.ToString();
+        }
+    }
+
+    void DropController()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
+        {
+            DropItem();
         }
     }
 
