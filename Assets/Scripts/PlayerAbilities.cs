@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAbilities : MonoBehaviour
 {
@@ -9,15 +10,17 @@ public class PlayerAbilities : MonoBehaviour
 
    
     private Player player;
-    public TadpoleSlider tadpoleSlider;
+
+
     public int maxTadpole = 4;
     public int currentTadpole;
+
+    public Text tadpoleText;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentTadpole = maxTadpole;
-        tadpoleSlider.SetMaxCount(maxTadpole);
     }
 
     void Update()
@@ -39,9 +42,7 @@ public class PlayerAbilities : MonoBehaviour
             Instantiate(TadpoleDrop, player.lastPosition,
             TadpoleDrop.transform.rotation);
             currentTadpole--;
-
-            tadpoleSlider.SetCount(currentTadpole);
-            
+            tadpoleText.text = currentTadpole.ToString();
         }
 
     }
@@ -53,7 +54,7 @@ public class PlayerAbilities : MonoBehaviour
             Destroy(collision.gameObject);
 
             currentTadpole++;
-            tadpoleSlider.SetCount(currentTadpole);
+            tadpoleText.text = currentTadpole.ToString();
         }
     }
 

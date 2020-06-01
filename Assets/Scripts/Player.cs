@@ -20,23 +20,21 @@ public class Player : MovingObject
 	public AudioClip gameOverSound;
     public ParticleSystem footprint;
     public GameObject speechBubble;
-
-
-    Vector2 movement;
+    public Vector2 movement;
     public Vector2 lastPosition;
 
     private Animator animator;
 	private int food;
 	private Vector2 touchOrigin = -Vector2.one;
-
-
+    private int colorCount = 0;
+    private int foodWarningLimit = 50;
 
     protected override void Start()
     {
         animator = GetComponent<Animator>();
 
         food = GameManager.instance.playerFoodPoints;
-        foodText.text = "Energy: " + food;
+        foodText.text = food.ToString();
 
         base.Start();
     }
@@ -55,6 +53,24 @@ public class Player : MovingObject
         int horizontal = 0;
         int vertical = 0;
 
+        if (foodText.color == Color.green) {
+            colorCount++;
+
+            // Show text for 60 frames
+            if (colorCount > 60) {
+                colorCount = 0;
+                foodText.color = Color.black;
+            }
+        }
+        else {
+            if (food < foodWarningLimit) {
+                foodText.color = Color.red;
+            }
+            else {
+                foodText.color = Color.black;
+            }
+        }
+
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 
         horizontal = (int) Input.GetAxisRaw("Horizontal");
@@ -63,12 +79,9 @@ public class Player : MovingObject
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        
-
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-  
 
         if (horizontal != 0) {
         	vertical = 0;
@@ -112,7 +125,7 @@ public class Player : MovingObject
 
     protected override void AttemptMove <T> (int xDir, int yDir) {
     	food--;
-        foodText.text = "Energy: " + food;
+        foodText.text = food.ToString();
 
         
         lastPosition = new Vector2(transform.position.x, transform.position.y);
@@ -136,17 +149,20 @@ public class Player : MovingObject
     	}
     	else if (other.tag == "Food") {
     		food += pointsPerFood;
-        	foodText.text = "+" + pointsPerFood + " Energy: " + food;
+        	foodText.text = food.ToString();
+            foodText.color = Color.green;
     		SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
     		other.gameObject.SetActive(false);
     	}
     	else if (other.tag == "Soda") {
     		food += pointsPerSoda;
-        	foodText.text = "+" + pointsPerSoda + " Energy: " + food;
+        	foodText.text = food.ToString();
+            foodText.color = Color.green;
     		SoundManager.instance.RandomizeSfx(drinkSound1, drinkSound2);
     		other.gameObject.SetActive(false);
     	}
     }
+
     protected override void OnCantMove <T> (T component) {
     	Wall hitWall = component as Wall;
     	hitWall.DamageWall(wallDamage);
@@ -162,7 +178,7 @@ public class Player : MovingObject
 
     public void LoseFood(int loss, int dir) {
     	food -= loss;
-        foodText.text = "-" + loss + " Food: " + food;
+        foodText.text = food.ToString();
 
         if(dir == 1)
         {

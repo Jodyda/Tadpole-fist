@@ -352,10 +352,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 936238664641211296, guid: 568aada3d673d924fa00c857652680a4,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e99db8d1674388644a7a8f36818aafb9, type: 3}
     - target: {fileID: 936238664641211297, guid: 568aada3d673d924fa00c857652680a4,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 936238664641211298, guid: 568aada3d673d924fa00c857652680a4,
         type: 3}
@@ -366,7 +371,7 @@ PrefabInstance:
         type: 3}
       propertyPath: efxSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 845351737}
     - target: {fileID: 936238664641211302, guid: 568aada3d673d924fa00c857652680a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -424,6 +429,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568aada3d673d924fa00c857652680a4, type: 3}
+--- !u!82 &845351737 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 936238664641211297, guid: 568aada3d673d924fa00c857652680a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 845351736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &978273373 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 936238664641211299, guid: 568aada3d673d924fa00c857652680a4,

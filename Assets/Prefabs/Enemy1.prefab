@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -900995045
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -169,6 +169,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerDamage: 10
+  BlockEnemy:
+    serializedVersion: 2
+    m_Bits: 512
   enemyAttack1: {fileID: 8300000, guid: 0db8cac2749584a009540aa5671ee80d, type: 3}
   enemyAttack2: {fileID: 8300000, guid: 114514a3b3697484ebaa08f7fbf842d3, type: 3}
   boardScript: {fileID: 0}
@@ -245,6 +248,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7087226664513444713, guid: 23b1a3f11d5c02d46a23614a9711bda9,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -991330201
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087226664513444713, guid: 23b1a3f11d5c02d46a23614a9711bda9,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990394892675070437, guid: 23b1a3f11d5c02d46a23614a9711bda9,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -991330201
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b1a3f11d5c02d46a23614a9711bda9, type: 3}
 --- !u!1 &659242439104596974 stripped
@@ -259,4 +277,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6169303569640128675}
   m_PrefabAsset: {fileID: 0}
-

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 	public int playerFoodPoints = 100;
 	[HideInInspector] public bool playersTurn = true;
 
-    public static float turnDelay = 0.2f;
+    public static float turnDelay = 0.3f;
     public static GameManager instance = null;
 
 	private Text levelText;
@@ -127,7 +127,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
         levelText.text = "After " + level + " days, you starved";
-        Destroy(soundManager);
         Destroy(gameObject);
         levelImage.SetActive(true);
     	enabled = false;
@@ -160,7 +159,7 @@ public class GameManager : MonoBehaviour
 
     	for (int i = 0; i < enemies.Count; i++) {
     		enemies[i].MoveEnemy();
-    		yield return new WaitForSeconds(enemies[i].moveTime);
+    		yield return new WaitForSeconds(turnDelay);
     	}
 
     	playersTurn = true;

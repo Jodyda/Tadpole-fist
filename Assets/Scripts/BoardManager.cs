@@ -31,14 +31,8 @@ public class BoardManager : MonoBehaviour
 	public float rows = 8;
 	public Count wallCount = new Count(5,9);
 	public Count foodCount = new Count(1,5);
-	public GameObject exit;
-	public GameObject entrance;
-	public GameObject[] floorTiles;
-	public GameObject[] wallTiles;
 	public GameObject[] foodTiles;
 	public GameObject[] enemyTiles;
-	public GameObject[] outerWallTiles;
-	public GameObject[] cornerWallTiles;
 
 	public Environment indoor = new Environment();
 	public Environment outdoor = new Environment();
@@ -173,6 +167,6 @@ public class BoardManager : MonoBehaviour
 
     	int enemyCount = (int)Mathf.Log(level, 2f);
     	LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-    	Instantiate(exit, new Vector3(columns - 1.5f, rows - 0.5f, 0f), Quaternion.identity);
+    	Instantiate(environment.exit, new Vector3(columns - 1.5f, rows - 0.5f, 0f), Quaternion.identity);
     }
 }

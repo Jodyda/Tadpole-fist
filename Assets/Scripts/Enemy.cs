@@ -30,7 +30,7 @@ class Path : object
 public class Enemy : MovingObject
 {
 	public int playerDamage;
-
+    public LayerMask BlockEnemy;
 	private Animator animator;
 	private Transform target;
 	//private bool skipMove;
@@ -154,12 +154,14 @@ public class Enemy : MovingObject
 
         // Cast line and check for hit
         RaycastHit2D hit = Physics2D.Linecast(start, end, blockingLayer);
+        RaycastHit2D hit2 = Physics2D.Linecast(start, end, BlockEnemy);
 
         // Reenable box collider
         this.GetComponent<BoxCollider2D>().enabled = true;
 
         // Did it hit something other than the Player in the blocking layer?
-        if (hit.transform != null && !hit.collider.tag.Equals("Player")) {
+        if ((hit.transform != null && !hit.collider.tag.Equals("Player"))
+            || (hit2.transform != null && !hit2.collider.tag.Equals("Player"))) {
             return true;
         }
 
