@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1861650685
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -3162649380323088456, guid: e017277173f4ecf4ba3be2027dd38041,
     type: 3}
@@ -125,5 +125,5 @@ MonoBehaviour:
   dmgSprite: {fileID: -3931403133539648422, guid: e017277173f4ecf4ba3be2027dd38041,
     type: 3}
   hp: 3
-  chopSound1: {fileID: 8300000, guid: 4c2332bc8245b474dad63074059bb755, type: 3}
-  chopSound2: {fileID: 8300000, guid: f6aaac83be9e0493493aace800b76619, type: 3}
+  chopSound1: {fileID: 8300000, guid: e918f6bcbdcb6db4aab30f92c6808d6f, type: 3}
+  chopSound2: {fileID: 8300000, guid: 9251ae336d96cdb4ab01725ac19a5205, type: 3}
