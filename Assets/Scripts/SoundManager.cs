@@ -28,6 +28,11 @@ public class SoundManager : MonoBehaviour
     	efxSource.Play();
     }
 
+    public void Mute()
+    {
+        AudioListener.pause = !AudioListener.pause;
+    }
+
     public void RandomizeSfx (params AudioClip [] clips) {
     	int randomIndex = Random.Range(0, clips.Length);
     	float randomPitch = Random.Range(lowPitchRange, highPitchRange);
