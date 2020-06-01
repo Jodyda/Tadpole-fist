@@ -50,7 +50,7 @@ public class ScoreManager : MonoBehaviour
     {
         GameManager.instance.score++;
 
-        Debug.Log("score " + GameManager.instance.score + GameManager.instance.highScore);
+        //Debug.Log("score " + GameManager.instance.score + GameManager.instance.highScore);
 
         UpdateHighScore();
 
@@ -63,7 +63,7 @@ public class ScoreManager : MonoBehaviour
         if (GameManager.instance.score > GameManager.instance.highScore)
         {
             GameManager.instance.highScore = GameManager.instance.score;
-            Debug.Log(GameManager.instance.highScore + "update");
+            //Debug.Log(GameManager.instance.highScore + "update");
             highScoreText.text = GameManager.instance.highScore.ToString();
         }
     }
@@ -77,7 +77,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (GameManager.instance.highScore == 0) 
         {
-            Debug.Log("Sparar");
+            //Debug.Log("Sparar");
             Load();
         }
         print(GameManager.instance.highScore);
@@ -86,7 +86,7 @@ public class ScoreManager : MonoBehaviour
         StreamWriter writer = new StreamWriter(path + "/" + scores);
         writer.WriteLine(json);
         writer.Close();
-        Debug.Log("Save");
+        //Debug.Log("Save");
     }
 
     public void Load()
@@ -116,7 +116,7 @@ public class ScoreManager : MonoBehaviour
             GameManager.instance.highScore = currentHighScore.hScore;
             highScoreText.text = GameManager.instance.highScore.ToString();
         }
-        Debug.Log("Laddar");
+        //Debug.Log("Laddar");
     
     }
 }

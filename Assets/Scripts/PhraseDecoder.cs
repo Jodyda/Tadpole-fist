@@ -26,7 +26,7 @@ public class PhraseDecoder : MonoBehaviour
     {
         phrases = JsonUtility.FromJson<Phrases>(jsonFile.text).phrases;
 
-        Debug.Log(phrases[0].player);
+        //Debug.Log(phrases[0].player);
     }
 
     public Phrase GetRandomPhrase() {
