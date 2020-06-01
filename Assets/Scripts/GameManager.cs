@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject soundManager;
 	public float levelStartDelay = 2f;
     public float speechBubbleDelay = 2f;
-    public float gameOverDelay = 2f;
+    public float gameOverDelay = 4f;
 	public BoardManager boardScript;
     public PhraseDecoder phraseDecoder;
 	public int playerFoodPoints = 100;
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        levelText.text = "After " + level + " days, you starved";
+        levelText.text = "After " + level + " rooms \n  \n you got caught";
         levelImage.SetActive(true);
 
         Invoke("EndGame", gameOverDelay);
