@@ -688,7 +688,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1354,7 +1354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00003412, y: 15.000004}
+  m_AnchoredPosition: {x: 0, y: 15.000004}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701215659
@@ -2568,8 +2568,8 @@ RectTransform:
   m_Father: {fileID: 1419524899}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2807,7 +2807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1205971081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3079,7 +3079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1416892052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3389,8 +3389,8 @@ RectTransform:
   m_Father: {fileID: 665279892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3558,7 +3558,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3976,12 +3976,12 @@ PrefabInstance:
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 780
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
@@ -4001,7 +4001,7 @@ PrefabInstance:
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
@@ -4011,7 +4011,7 @@ PrefabInstance:
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
@@ -4021,7 +4021,7 @@ PrefabInstance:
     - target: {fileID: 8563574709931958322, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8563574709931958323, guid: 43f1b424a1d8daa41b2971301df73ead,
         type: 3}
@@ -4047,6 +4047,16 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: e99db8d1674388644a7a8f36818aafb9, type: 3}
+    - target: {fileID: 936238664641211296, guid: 568aada3d673d924fa00c857652680a4,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936238664641211296, guid: 568aada3d673d924fa00c857652680a4,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 936238664641211297, guid: 568aada3d673d924fa00c857652680a4,
         type: 3}
       propertyPath: m_Enabled
@@ -4056,6 +4066,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 936238664641211299, guid: 568aada3d673d924fa00c857652680a4,
+        type: 3}
+      propertyPath: highPitchRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936238664641211299, guid: 568aada3d673d924fa00c857652680a4,
+        type: 3}
+      propertyPath: lowPitchRange
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 936238664641211302, guid: 568aada3d673d924fa00c857652680a4,
         type: 3}
