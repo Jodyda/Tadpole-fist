@@ -99,7 +99,7 @@ public class ScoreManager : MonoBehaviour
             string data = reader.ReadToEnd();
             currentHighScore = JsonUtility.FromJson<HighScore>(data);
             reader.Close();
-        } catch(FileNotFoundException e)
+        } catch(FileNotFoundException)
         {
             if (currentHighScore == null)
             {
