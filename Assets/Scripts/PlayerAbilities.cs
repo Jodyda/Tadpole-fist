@@ -33,12 +33,13 @@ public class PlayerAbilities : MonoBehaviour
 
     void Update()
     {
-        if (!PauseMenu.GameIsPaused && Input.mousePosition.x < 10 && Input.mousePosition.x > -1.5 && Input.mousePosition.y < 10 && Input.mousePosition.y > -1.5)
+        if (!PauseMenu.GameIsPaused && Input.mousePosition.x > 200 && Input.mousePosition.x < 1300 && Input.mousePosition.y > 0 && Input.mousePosition.y < 600)
         {
             DropController();
 
         }
     }
+    
 
 
     void DropItem()

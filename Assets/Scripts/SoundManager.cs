@@ -28,9 +28,18 @@ public class SoundManager : MonoBehaviour
     	efxSource.Play();
     }
 
-    public void Mute()
+    public void ToggleSound()
     {
-        AudioListener.pause = !AudioListener.pause;
+        //Ny
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            PlayerPrefs.SetInt("Muted", 1);
+        
+        } 
+        else 
+        {
+            PlayerPrefs.SetInt("Muted", 0);
+        }
     }
 
     public void RandomizeSfx (params AudioClip [] clips) {
