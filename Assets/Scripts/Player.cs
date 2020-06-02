@@ -46,6 +46,7 @@ public class Player : MovingObject
 
     void Update()
     {
+        //print(Input.mousePosition);
         if (!GameManager.instance.playersTurn) {
         	return;
         }
@@ -170,8 +171,8 @@ public class Player : MovingObject
     }
 
     private void Restart() {
-        Debug.Log("Gamemanager score " + GameManager.instance.score);
-       // GameManager.instance.score = ScoreManager.instance.score;
+        //Debug.Log("Gamemanager score " + GameManager.instance.score);
+        // GameManager.instance.score = ScoreManager.instance.score;
         // GameManager.instance.highScore = ScoreManager.instance.highScore;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
