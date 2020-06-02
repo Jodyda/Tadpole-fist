@@ -22,6 +22,10 @@ public class Player : MovingObject
     public GameObject speechBubble;
     public Vector2 movement;
     public Vector2 lastPosition;
+    //To move by swipe
+    public Vector2 startPos;
+    public Vector2 direction;
+    public bool directionChosen;
 
     private Animator animator;
 	private int food;
@@ -90,27 +94,39 @@ public class Player : MovingObject
         }
 
 #else  
+     
         if (Input.touchCount > 0) {
         	Touch myTouch = Input.touches[0];
 
             if (myTouch.phase == TouchPhase.Began) {
             	touchOrigin = myTouch.position;
             }
-            else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0) {
+            else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x > 0) {
             	Vector2 touchEnd = myTouch.position;
             	float x = touchEnd.x - touchOrigin.x;
             	float y = touchEnd.y - touchOrigin.y;
             	touchOrigin.x = -1;
 
             	if (Mathf.Abs(x) > Mathf.Abs(y)) {
-            		horizontal = x > 0 ? 1 : -1;
+                    if (x > 100)
+                    {
+                        horizontal = 1;
+                    } else if(x < -100)
+                        horizontal = -1;
+            		
             	}
-            	else {
-            		vertical = y > 0 ? 1 : -1;
+            	else{
+                    if(y > 100)
+                    {
+                        vertical = 1;
+                    }else if(y < -100)
+                    {
+                        vertical = -1;
+                    }
+            		
             	}
             }
         }
-
 #endif
 
         if (horizontal != 0 || vertical != 0) {
@@ -119,10 +135,6 @@ public class Player : MovingObject
         }
     }
 
-    //private void FixedUpdate()
-    //{
-     //   rb.MovePosition(rb.position * moveSpeed * Time.fixedDeltaTime);
-    //}
 
     protected override void AttemptMove <T> (int xDir, int yDir) {
     	food--;
