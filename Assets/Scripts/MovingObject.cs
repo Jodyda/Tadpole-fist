@@ -26,7 +26,7 @@ public abstract class MovingObject : MonoBehaviour
         inverseMoveTime = 1f / moveTime;
 
         combinedMask = mask1 | mask2;
-        Debug.Log("combined mask: " + combinedMask);
+        // Debug.Log("combined mask: " + combinedMask);
 
     }
 
