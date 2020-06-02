@@ -39,8 +39,14 @@ public class PlayerAbilities : MonoBehaviour
 
         }
     }
-    
 
+    void DropController()
+    {
+        if (IsDoubleTap())
+        {
+            DropItem();
+        }
+    }
 
     void DropItem()
     {
@@ -67,14 +73,23 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
-    void DropController()
-    {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
-        {
-            DropItem();
-        }
-    }
 
+    public static bool IsDoubleTap()
+    {
+        bool result = false;
+        float MaxTimeWait = 1;
+        float VariancePosition = 1;
+
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            float DeltaTime = Input.GetTouch(0).deltaTime;
+            float DeltaPositionLenght = Input.GetTouch(0).deltaPosition.magnitude;
+
+            if (DeltaTime > 0 && DeltaTime < MaxTimeWait && DeltaPositionLenght < VariancePosition)
+                result = true;
+        }
+        return result;
+    }
 
 }
 

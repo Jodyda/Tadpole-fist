@@ -46,7 +46,6 @@ public class Player : MovingObject
 
     void Update()
     {
-        print(Input.mousePosition);
         if (!GameManager.instance.playersTurn) {
         	return;
         }
