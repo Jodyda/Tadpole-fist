@@ -22,10 +22,6 @@ public class Player : MovingObject
     public GameObject speechBubble;
     public Vector2 movement;
     public Vector2 lastPosition;
-    //To move by swipe
-    public Vector2 startPos;
-    public Vector2 direction;
-    public bool directionChosen;
 
     private Animator animator;
 	private int food;
@@ -81,12 +77,8 @@ public class Player : MovingObject
         horizontal = (int) Input.GetAxisRaw("Horizontal");
         vertical = (int) Input.GetAxisRaw("Vertical");
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        animator.SetFloat("Horizontal", (float) horizontal);
+        animator.SetFloat("Vertical", (float) vertical);
 
         if (horizontal != 0) {
         	vertical = 0;
@@ -127,11 +119,18 @@ public class Player : MovingObject
             	}
             }
         }
+
+        animator.SetFloat("Horizontal", (float) horizontal);
+        animator.SetFloat("Vertical", (float) vertical);
 #endif
 
         if (horizontal != 0 || vertical != 0) {
         	AttemptMove <Wall> (horizontal, vertical);
+            animator.SetFloat("Speed", 0.5f);
             CreateFootprint();
+        }
+        else {
+            animator.SetFloat("Speed", 0f);
         }
     }
 
