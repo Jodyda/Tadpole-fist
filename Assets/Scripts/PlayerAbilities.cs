@@ -42,7 +42,7 @@ public class PlayerAbilities : MonoBehaviour
 
     void DropController()
     {
-        if (IsDoubleTap())
+        if (IsDoubleTap() || Input.GetKeyDown("space"))
         {
             DropItem();
         }

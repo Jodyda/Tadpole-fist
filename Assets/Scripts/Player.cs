@@ -94,6 +94,7 @@ public class Player : MovingObject
         }
 
 #else  
+       
      
         if (Input.touchCount > 0) {
         	Touch myTouch = Input.touches[0];
@@ -113,6 +114,7 @@ public class Player : MovingObject
                         horizontal = 1;
                     } else if(x < -100)
                         horizontal = -1;
+                        
             		
             	}
             	else{
@@ -125,7 +127,11 @@ public class Player : MovingObject
                     }
             		
             	}
-            }
+            } 
+
+             animator.SetFloat("Horizontal", horizontal);
+            animator.SetFloat("Vertical", vertical);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
         }
 #endif
 
