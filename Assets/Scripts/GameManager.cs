@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
 	private Text levelText;
 	private GameObject levelImage;
+    private GameObject menuButton;
 	private int level = 0;
 	private List<Enemy> enemies;
     private Player player;
@@ -78,7 +79,10 @@ public class GameManager : MonoBehaviour
 
     	levelImage = GameObject.Find("LevelImage");
     	levelText = GameObject.Find("LevelText").GetComponent<Text>();
+        menuButton = GameObject.Find("MenuButton");
+
     	levelText.text = "Room " + level;
+        menuButton.SetActive(false);
     	levelImage.SetActive(true);
     	Invoke("HideLevelImage", levelStartDelay);
 
@@ -127,15 +131,16 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        levelText.text = "After " + level + " rooms \n  \n you got caught";
+        levelText.text = "After " + level + " rooms\nyou got caught";
+        menuButton.SetActive(true);
         levelImage.SetActive(true);
 
-        Invoke("EndGame", gameOverDelay);
+        //Invoke("EndGame", gameOverDelay);
     }
 
     public void EndGame() {
         enabled = false;
-        Destroy(gameObject);
+        Destroy(GameObject.FindGameObjectWithTag("GameController"), 0);
         ScoreManager.instance.Save();
         SceneManager.LoadScene(0);
         SoundManager.instance.musicSource.Play();
