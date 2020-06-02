@@ -130,12 +130,12 @@ public class GameManager : MonoBehaviour
         levelText.text = "After " + level + " rooms \n  \n you got caught";
         levelImage.SetActive(true);
 
-        Invoke("EndGame", gameOverDelay);
+        //Invoke("EndGame", gameOverDelay);
     }
 
     public void EndGame() {
         enabled = false;
-        Destroy(gameObject);
+        Destroy(GameObject.FindGameObjectWithTag("GameController"), 0);
         ScoreManager.instance.Save();
         SceneManager.LoadScene(0);
         SoundManager.instance.musicSource.Play();
